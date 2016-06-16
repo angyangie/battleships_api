@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  completed: false
+  winner: 1
+  type: 
+
+two:
+  completed: false
+  winner: 1
+  type: 
