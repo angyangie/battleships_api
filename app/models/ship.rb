@@ -1,4 +1,6 @@
 class Ship < ApplicationRecord
-  belongs_to :game
-  belongs_to :user
+  belongs_to :user_game
+  delegate :hits, to: :user_game
+  delegate :user, to: :user_game
+  delegate :game, to: :user_game
 end
