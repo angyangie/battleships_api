@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617001307) do
+ActiveRecord::Schema.define(version: 20160617154531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,28 +22,25 @@ ActiveRecord::Schema.define(version: 20160617001307) do
     t.string   "game_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "hits"
-  end
-
-  create_table "scores", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "game_id"
-    t.integer  "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_scores_on_game_id", using: :btree
-    t.index ["user_id"], name: "index_scores_on_user_id", using: :btree
   end
 
   create_table "ships", force: :cascade do |t|
     t.string   "coordinates"
     t.string   "ship_type"
-    t.integer  "game_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_game_id"
+    t.index ["user_game_id"], name: "index_ships_on_user_game_id", using: :btree
+  end
+
+  create_table "user_games", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["game_id"], name: "index_ships_on_game_id", using: :btree
-    t.index ["user_id"], name: "index_ships_on_user_id", using: :btree
+    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "hits"
+    t.index ["game_id"], name: "index_user_games_on_game_id", using: :btree
+    t.index ["user_id"], name: "index_user_games_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,8 +55,6 @@ ActiveRecord::Schema.define(version: 20160617001307) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "scores", "games"
-  add_foreign_key "scores", "users"
-  add_foreign_key "ships", "games"
-  add_foreign_key "ships", "users"
+  add_foreign_key "user_games", "games"
+  add_foreign_key "user_games", "users"
 end
