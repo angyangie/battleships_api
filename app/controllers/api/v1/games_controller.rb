@@ -10,16 +10,12 @@ module Api
         render json: Game.includes(:ships).find_by(id: params[:id]), include: ['ships']
       end
 
-      def hits_array 33
-        @hits = params[:coords]
-
-
-        #create a route (which will look at all the coordinates, determine whether or not it was a hit, then change the array and save). hit from 0 or a 1 or a 2? 
-        #needs to be nested in games.
+      def hits_array #expect from AJAX: user_game, coordinates
+        binding.pry
+        current_user_game = UserGame.find_by(id: params[:id])
+        data = HitDeterminator.determine(params[:coords], current_user_game)
+        render json: { data: data }
       end
-
     end
   end
 end
-
-#Do ajax call to route in ember. Second board up. 

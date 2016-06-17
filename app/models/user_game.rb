@@ -5,6 +5,10 @@ class UserGame < ApplicationRecord
 
   after_create :initialize_hits_array
 
+  def other_user_game
+    this.game.where.not(id: self.id)
+  end
+
   private
 
   def initialize_hits_array
