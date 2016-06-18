@@ -7,7 +7,8 @@ module Api
       end
 
       def show
-        render json: Game.includes(:ships).find_by(id: params[:id]), include: ['ships']
+        render json: Game.includes(:user_games, :ships, :users).find_by(id: params[:id]), include: ['user_games', 'ships', 'users']
+        # render json: Game.includes(:user_games, :ships, :users).find_by(id: params[:id]), include: ['ships', 'user_games', 'users']
       end
 
       def hits_array #expect from AJAX: user_game, coordinates
