@@ -1,4 +1,4 @@
-class HitDetermintor
+class HitDeterminator
   def self.determine(coords, current_user_game)
     binding.pry
     opponent_user_game = current_user_game.other_user_game

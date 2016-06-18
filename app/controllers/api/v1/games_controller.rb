@@ -13,7 +13,7 @@ module Api
 
       def hits_array #expect from AJAX: user_game, coordinates
         binding.pry
-        current_user_game = UserGame.find_by(id: params[:id])
+        current_user_game = UserGame.find_by(id: params[:user_game_id])
         data = HitDeterminator.determine(params[:coords], current_user_game)
         render json: { data: data }
       end
