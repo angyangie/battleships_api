@@ -3,6 +3,6 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :user_games
   has_many :games, through: :user_games
-  has_many :ships
+  has_many :ships, through: :user_games
 
 end
