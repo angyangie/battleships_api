@@ -6,7 +6,7 @@ class UserGame < ApplicationRecord
   after_create :initialize_hits_array
 
   def other_user_game
-    self.game.user_games.where.not(id: self.id)
+    self.game.user_games.where.not(id: self.id)[0]
   end
 
   private
@@ -23,6 +23,7 @@ class UserGame < ApplicationRecord
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    save
   end
 
 end
