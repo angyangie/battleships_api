@@ -11,8 +11,8 @@ module Api
       end
 
       def hits_array
-        current_user_game = UserGame.find_by(id: params[:user_game_id])
-        data = HitDeterminator.determine(params[:coords], current_user_game)
+        player_user_game = UserGame.find_by(id: params[:user_game_id])
+        data = HitDeterminator.determine_turn_outcome(params[:player_coords], params[:ai_coords], player_user_game)
         render json: { data: data }
       end
     end
