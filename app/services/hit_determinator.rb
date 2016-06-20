@@ -34,10 +34,10 @@ class HitDeterminator
     if (user_game.hits[x][y] == 1) || (user_game.hits[x][y] == 2)
       # logic if we want to let user know they already hit that target
     elsif hit
-      user_game.hits[x][y] = 2
+      user_game.hits[x][y] = "2"
       determine_sunk_ship(user_game)
     else 
-      user_game.hits[x][y] = 1
+      user_game.hits[x][y] = "1"
     end
     user_game.save
     user_game.hits.flatten.inject(""){|l,z| "#{l},#{z}"}[1..-1]
