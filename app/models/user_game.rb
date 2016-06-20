@@ -3,7 +3,7 @@ class UserGame < ApplicationRecord
   belongs_to :game
   has_many :ships
 
-  after_create :initialize_hits_array
+  after_create :initialize_hits_array, :generate_random_ships
 
   def other_user_game
     self.game.user_games.where.not(id: self.id)[0]
@@ -42,7 +42,6 @@ class UserGame < ApplicationRecord
       coords = []
       loop do
         first_coord = rand(100).to_s.rjust(2, "0")
-        binding.pry
         if is_coord_valid?(first_coord)
           coords << first_coord
           break
@@ -52,18 +51,15 @@ class UserGame < ApplicationRecord
       (length - 1).times do
         coord = vertical ? "#{coords.last[0]}#{(coords.last[1].to_i + pos_or_neg)}" : "#{coords.last[0].to_i + pos_or_neg}#{coords.last[1]}"
         coords << coord
-        binding.pry
       end
 
       break if coords.all? { |coord| is_coord_valid?(coord) }
     end
     coords_string = coords.join(",")
-    binding.pry
     ship = Ship.create(coordinates: coords_string, ship_type: ship_type, user_game: self, user: self.user)
   end
 
   def is_coord_valid?(coord)
-    binding.pry
     coord.match(/\d\d/) && coord.to_i >= 0 && coord.to_i < 100 && !self.ships.pluck('coordinates').join(",").include?(coord)
   end
 
