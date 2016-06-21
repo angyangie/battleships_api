@@ -1,8 +1,8 @@
 user1 = User.create(username: "angyangie", first_name: "Angie", last_name: "Ramirez", email: "angie.ramirez12@gmail.com", player_rank: "10", password: "hellothere1")
 user2 = User.create(username: "mykemike", first_name: "Michael", last_name: "Appell", email: "mikeappell@gmail.com", player_rank: "3", password: "hellothere1")
 
-game1 = Game.create(completed: true, game_type: "competitive", winner_id: user1.id)
-game2 = Game.create(completed: false, game_type: "competitive")
+game1 = Game.create(completed: 0, game_type: "competitive", winner_id: 1)
+game2 = Game.create(completed: 0, game_type: "competitive", winner_id: 1)
 
 user_game1 = UserGame.create(user: user1, game: game1)
 user_game2 = UserGame.create(user: user2, game: game1)

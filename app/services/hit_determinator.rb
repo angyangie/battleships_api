@@ -46,6 +46,8 @@ class HitDeterminator
       ship.coordinates.split(",").all? { |coord| user_game.hits[coord[0].to_i][coord[1].to_i] == "3" }
     end
     if game_over
+      user_game.game.completed = user_game.id
+      user_game.game.save
       @game_status = user_game.id
     end
   end
