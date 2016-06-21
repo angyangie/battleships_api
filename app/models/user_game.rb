@@ -11,10 +11,10 @@ class UserGame < ApplicationRecord
 
   def generate_random_ships
     generate_ship(5, "carrier")
-    # generate_ship(4, "battleship")
+    generate_ship(4, "battleship")
+    generate_ship(3, "cruiser")
     # generate_ship(3, "cruiser")
-    # generate_ship(3, "cruiser")
-    # generate_ship(2, "destroyer")
+    generate_ship(2, "destroyer")
   end
 
   private
