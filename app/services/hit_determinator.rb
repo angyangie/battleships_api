@@ -1,7 +1,7 @@
 class HitDeterminator
   # def self.determine_turn_outcome(player_coords, player_user_game)
   def self.determine_turn_outcome(player_coords, ai_coords, player_user_game)
-    @game_status = false
+    @game_status = 0
     opponent_user_game = player_user_game.other_user_game
 
     ai_board_hits_string = update_user_game_hits(opponent_user_game, player_coords)
@@ -45,7 +45,9 @@ class HitDeterminator
     game_over = user_game.ships.all? do |ship|
       ship.coordinates.split(",").all? { |coord| user_game.hits[coord[0].to_i][coord[1].to_i] == "3" }
     end
-    @game_status = user_game.id if game_over
+    if game_over
+      @game_status = user_game.id
+    end
   end
 
 end

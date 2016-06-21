@@ -60,7 +60,7 @@ class UserGame < ApplicationRecord
   end
 
   def is_coord_valid?(coord)
-    coord.match(/\d\d/) && coord.to_i >= 0 && coord.to_i < 100 && !self.ships.pluck('coordinates').join(",").include?(coord)
+    coord.match(/^\d\d$/) && coord.to_i >= 0 && coord.to_i < 100 && !self.ships.pluck('coordinates').join(",").include?(coord)
   end
 
 end
