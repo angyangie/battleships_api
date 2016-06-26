@@ -1,6 +1,6 @@
 class HitDeterminator
-  # def self.determine_turn_outcome(player_coords, player_user_game)
   def self.determine_turn_outcome(player_coords, ai_coords, player_user_game)
+    # binding.pry
     @game_status = 0
     opponent_user_game = player_user_game.other_user_game
 
@@ -17,6 +17,8 @@ class HitDeterminator
   private
 
   def self.update_user_game_hits(user_game, coords)
+    # binding.pry
+    coords = coords.rjust(2, "0")
     hit = user_game.ships.map(&:coordinates).map{|coord| coord.split(",")}.flatten.include?(coords)
     x, y = coords[0].to_i, coords[1].to_i
     if (user_game.hits[x][y] == 1) || (user_game.hits[x][y] == 2)
