@@ -1,4 +1,4 @@
-# Out-of-the-water
+# Battleships_API
 
 This is the Rails 5 component of Out of the Water, a Battleship clone written with a Rails 5 API and Ember.JS front-end.
 
