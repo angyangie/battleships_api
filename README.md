@@ -20,5 +20,5 @@ You will need the following things installed on your computer:
 
 ## Running / Development
 
-* `rails s` to begin running the Rails server. You will also need the Rails component running; repo located at https://github.com/angyangie/Out_of_the_Water
+* `rails s` to begin running the Rails server. You will also need the Ember component running; repo located at https://github.com/angyangie/Out_of_the_Water
 * Once the Rails server is running, the JSON data being sent is viewable at http://localhost:3000. However, you'll need the Ember server running to play the game; run `ember s` and play on http://localhost:4200.
