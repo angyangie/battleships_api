@@ -1,24 +1,24 @@
-# README
+# Out-of-the-water
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the Rails 5 component of Out of the Water, a Battleship clone written with a Rails 5 API and Ember.JS front-end.
 
-Things you may want to cover:
+Sink ships! Beat the indefatigable AI! Achieve world domination! Stop Sky-Net! And still make it home in time for milk and cookies.
 
-* Ruby version
+## Prerequisites
 
-* System dependencies
+You will need the following things installed on your computer:
 
-* Configuration
+* Ember.JS, bower, babel/babel-cli via `npm` (for the Ember component)
+* Rails 5 installed via `gem`
+* `bundler` gem installed
 
-* Database creation
+## Installation
 
-* Database initialization
+* `git clone git@github.com:angyangie/battleships_api.git` this repository
+* change into the new directory:
+* `bundle install`
 
-* How to run the test suite
+## Running / Development
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* `rails s` to begin running the Rails server. You will also need the Rails component running; repo located at https://github.com/angyangie/Out_of_the_Water
+* Once the Rails server is running, the JSON data being sent is viewable at http://localhost:3000. However, you'll need the Ember server running to play the game; run `ember s` and play on http://localhost:4200.
