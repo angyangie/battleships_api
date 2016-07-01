@@ -9,15 +9,13 @@ user_game2 = UserGame.create(user: user2, game: game1)
 user_game3 = UserGame.create(user: user1, game: game2)
 user_game4 = UserGame.create(user: user2, game: game2)
 
+# ship2 = Ship.create(coordinates: "53,54,55,56", ship_type: "battleship", user_game: user_game1, user: user1)
+# ship3 = Ship.create(coordinates: "63,64,65,66" , ship_type: "battleship", user_game: user_game1, user: user1)
+# ship4 = Ship.create(coordinates: "71,72,73,74,75", ship_type: "carrier", user_game: user_game1, user: user1)
+# ship5 = Ship.create(coordinates: "45,46,47,48", ship_type: "battleship", user_game: user_game1, user: user1)
 
-# ship2 = Ship.create(coordinates: "53,63", ship_type: "destroyer", user_game: user_game1)
-# ship3 = Ship.create(coordinates: "92,93,94,95" , ship_type: "battleship", user_game: user_game1)
-# ship4 = Ship.create(coordinates: "28,38,48,58,68", ship_type: "carrier", user_game: user_game1)
-# ship5 = Ship.create(coordinates: "11,12,13,14", ship_type: "battleship", user_game: user_game1)
-
-
-# ship6 = Ship.create(coordinates: "32,33,34", ship_type: "cruiser", user_game: user_game2)
-# ship7 = Ship.create(coordinates: "76,66", ship_type: "destroyer", user_game: user_game2)
+# ship6 = Ship.create(coordinates: "32,33,34", ship_type: "cruiser", user_game: user_game2, user: user2)
+# ship7 = Ship.create(coordinates: "76,66", ship_type: "destroyer", user_game: user_game2, user: user2)
 
 # ship11 = Ship.create(coordinates: "33,34,35", ship_type: "cruiser", user_game: user_game3)
 # ship12 = Ship.create(coordinates: "66,56", ship_type: "destroyer", user_game: user_game3)
@@ -31,4 +29,3 @@ user_game4 = UserGame.create(user: user2, game: game2)
 # ship18 = Ship.create(coordinates: "51,52,53,54" , ship_type: "battleship", user_game: user_game4)
 # ship19 = Ship.create(coordinates: "18,28,38,48,58", ship_type: "carrier", user_game: user_game4)
 # ship20 = Ship.create(coordinates: "23,24,25,26", ship_type: "battleship", user_game: user_game4)
-
